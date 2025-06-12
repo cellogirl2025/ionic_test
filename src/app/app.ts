@@ -58,6 +58,11 @@ export class App {
     console.log("Listening Stop")
   }
 
+  checkLanguages() {
+    SpeechRecognition.getSupportedLanguages()
+    console.log("Languages Check")
+  }
+
   
 }
 
