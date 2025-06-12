@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected title = 'ionic_test';
-  username = signal('Y');
+  username:string = "Y";
 }
 
 
