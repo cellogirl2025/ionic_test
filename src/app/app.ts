@@ -20,66 +20,42 @@ export class App {
   ngOnInit() {
     SpeechRecognition.available();
 
-  SpeechRecognition.start({
-    language: "en-US",
-    maxResults: 2,
-    prompt: "Say something",
-    partialResults: true,
-    popup: true,
-  });
-  // listen to partial results
-  SpeechRecognition.addListener("partialResults", (data: any) => {
-    console.log("partialResults was fired", data.matches);
-  });
+    SpeechRecognition.start({
+      language: "en-US",
+      maxResults: 2,
+      prompt: "Say something",
+      partialResults: true,
+      popup: true,
+    });
+    // listen to partial results
+    SpeechRecognition.addListener("partialResults", (data: any) => {
+      console.log("partialResults was fired", data.matches);
+    });
 
-  // stop listening partial results
-  SpeechRecognition.removeAllListeners();
+    // stop listening partial results
+    SpeechRecognition.removeAllListeners();
 
-  SpeechRecognition.stop();
+    SpeechRecognition.stop();
 
-  SpeechRecognition.getSupportedLanguages();
+    SpeechRecognition.getSupportedLanguages();
 
-  SpeechRecognition.checkPermissions();
+    SpeechRecognition.checkPermissions();
 
-  SpeechRecognition.requestPermissions();
+    SpeechRecognition.requestPermissions();
+
+    
 
   
-
-const speak = async () => {
-  await TextToSpeech.speak({
-    text: 'This is a sample text.',
-    lang: 'en-US',
-    rate: 1.0,
-    pitch: 1.0,
-    volume: 1.0,
-    category: 'ambient',
-    queueStrategy: 1
-  });
-};
-
-const stop = async () => {
-  await TextToSpeech.stop();
-};
-
-const getSupportedLanguages = async () => {
-  const languages = await TextToSpeech.getSupportedLanguages();
-};
-
-const getSupportedVoices = async () => {
-  const voices = await TextToSpeech.getSupportedVoices();
-};
-
-const isLanguageSupported = async (lang: string) => {
-  const isSupported = await TextToSpeech.isLanguageSupported({ lang });
-};
   }
 
   startListening () {
     SpeechRecognition.start()
+    console.log("Start Listening")
   }
 
   stopListening() {
     SpeechRecognition.stop()
+    console.log("Listening Stop")
   }
 
   
