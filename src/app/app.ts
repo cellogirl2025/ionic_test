@@ -18,6 +18,7 @@ export class App {
   }
 
   ngOnInit() {
+    
     SpeechRecognition.available();
 
     SpeechRecognition.start({
@@ -59,11 +60,13 @@ export class App {
   }
 
   checkLanguages() {
-    SpeechRecognition.getSupportedLanguages()
+    var languages = SpeechRecognition.getSupportedLanguages()
     console.log("Languages Check")
+    return languages
   }
 
   
+
 }
 
 

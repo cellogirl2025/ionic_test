@@ -14,13 +14,22 @@
           <button ion-button (click)="stopListening()">Stop Listening</button>
         </div>
       </li>
-      <li>
-        <div id="play">
-          <button ion-button (click)="checkLanguages()">View Languages</button>
-        </div>
-      </li>
   </div>
   </ul>
+
+  <div id="languages list">
+    <script>
+      var languages = checkLanguages()
+      if (languages != []) {
+        let list = document.getElementById("languages list")
+        for (i=0; i < languages.length; i++) {
+          var li = document.createElement('li')
+          li.innerText = languages[i]
+          list.appendChild(li)
+        }
+      }
+    </script>
+  </div>
   
 </main>
 
